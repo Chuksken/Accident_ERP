@@ -12,8 +12,8 @@ export class AuthService {
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
     //apiUrl = 'http://localhost:3000/api'; // environment.PEACE_API;
-     apiUrl = 'http://192.168.6.147:3000/api';
-    //apiUrl = 'https://jibrila.herokuapp.com/api';
+     //apiUrl = 'http://192.168.6.147:3000/api';
+    apiUrl = 'https://jibrila.herokuapp.com/api';
     constructor(private http: HttpClient) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();

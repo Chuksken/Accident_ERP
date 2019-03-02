@@ -90,7 +90,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          PMT &amp; PML Terminals
+          ACCIDENT LIST
           <div class="pull-right">
               <button class="btn btn-sm btn-info" style="width:100px" (click)="accidentAdd()">  Add Accident</button>
           </div>
@@ -102,20 +102,26 @@
             <thead class="thead-light">
             <tr>
               <th class="text-center">SN</th>
-              <th>Name</th>
-              <th>Address</th>
-              <th class="text-center"><i class="icon-people"></i></th>
+              <th>Vehicle</th>
+              <th>Occurred Date</th>
+              <th>Occurred Place</th>
+              <th>Vehicle Plate number</th>
+              <th>Record Status</th>
+              
+              <!-- <th class="text-center"><i class="icon-people"></i></th> -->
               <th width='20%' class="text-center">Action</th>
             </tr>
             </thead>
             <tbody>
-            <tr  *ngFor="let record of terminals; let i = index">
+            <tr  *ngFor="let record of accidents; let i = index">
               <td>{{ i + 1 }}</td>
-              <td>{{ record.name }}</td>
-              <td>{{ record.address }}</td>
+              <td>{{ record.vehicle_id.vehicle_make }}</td>
+              <td>{{ record.occurred_date}}</td>
+              <td>{{ record.occurred_place }}</td>
+              <td>{{ record.vehicle_id.plate_number }}</td>
               <td>
-                  <div class="small text-muted">{{ record.manager }}</div>
-                  <strong>{{ record.phone }}</strong>
+                  <!-- <div class="small text-muted">{{ record.verdict }}</div> -->
+                  <strong>{{ record.record_status }}</strong>
               </td>
               <td class="text-center">
                   <button type="button" (click)="accidentDetail(record)" class="btn btn-sm btn-info"><i class="fa fa-windows"></i></button>

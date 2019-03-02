@@ -32,20 +32,20 @@ export class ApiService {
     }
      
      retrieveAccident(query = ''): Observable<ApiResponse> {
-        return this.http.get<ApiResponse>(`${this.apiUrl}/terminals${query}`);
+        return this.http.get<ApiResponse>(`${this.apiUrl}/accidents${query}`);
     }
 
     updateAccident(terminal: Terminal): Observable<ApiResponse> {
         const id = terminal.id;
         delete terminal.id;
         const payload = this.utilsService.cleanObject(terminal);
-        return this.http.put<ApiResponse>(`${this.apiUrl}/terminals/${id}`, payload);
+        return this.http.put<ApiResponse>(`${this.apiUrl}/accidents/${id}`, payload);
     }
 
     createAccident(terminal: Terminal): Observable<ApiResponse> {
         delete terminal.id;
         const payload = this.utilsService.cleanObject(terminal);
-        return this.http.post<ApiResponse>(`${this.apiUrl}/terminals`, payload);
+        return this.http.post<ApiResponse>(`${this.apiUrl}/accidents`, payload);
     }
 
     deleteAccident(id: Terminal['id']): Observable<ApiResponse> {
@@ -122,13 +122,22 @@ export class ApiService {
     }
 
     // City, County, State
-    retrieveCity(query = ''): Observable<ApiResponse> {
-        return this.http.get<ApiResponse>(`${this.apiUrl}/cities${query}`);
+    retrieveVehicle(query = ''): Observable<ApiResponse> {
+        return this.http.get<ApiResponse>(`${this.apiUrl}/vehicles${query}`);
     }
     retrieveCounty(query = ''): Observable<ApiResponse> {
         return this.http.get<ApiResponse>(`${this.apiUrl}/counties${query}`);
     }
+    retrieveDriver(query = ''): Observable<ApiResponse> {
+        return this.http.get<ApiResponse>(`${this.apiUrl}/drivers${query}`);
+    }
+    retrieveRoute(query = ''): Observable<ApiResponse> {
+        return this.http.get<ApiResponse>(`${this.apiUrl}/routes${query}`);
+    }
     retrieveState(query = ''): Observable<ApiResponse> {
         return this.http.get<ApiResponse>(`${this.apiUrl}/states${query}`);
+    }
+    retrieveCity(query = ''): Observable<ApiResponse> {
+        return this.http.get<ApiResponse>(`${this.apiUrl}/cities${query}`);
     }
 }

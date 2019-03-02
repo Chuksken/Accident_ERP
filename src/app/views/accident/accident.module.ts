@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SelectModule } from 'ng2-select';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AccidentRoutingModule } from './accident-routing.module';
 import { AccidentComponent } from './accident.component';
@@ -17,7 +17,7 @@ import { AccidentListComponent } from './accident-list/accident-list.component';
     AccidentRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SelectModule
+    NgSelectModule
   ]
 })
 export class AccidentModule { }

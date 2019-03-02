@@ -12,8 +12,8 @@
           <div class="card-body">
   
             <!-- form content -->
-            <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
-            <div class="row">
+        <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+          <div class="row">
   
             <div class="col-sm-6">
               <div class="card">
@@ -77,11 +77,6 @@
                             </div>
                             <ng-select id="city" formControlName="city" name="city" 
                               [allowClear]="true" [multiple]="false"
-                              [items]="cities" [active]="active_city"
-                              (data)="refreshValue($event)"
-                              (selected)="selected($event)"
-                              (removed)="removed($event)"
-                              (typed)="typed($event)"
                               placeholder="No city selected">
                             </ng-select>
                             <div class="input-group-append">
@@ -97,11 +92,7 @@
                             </div>
                             <ng-select id="county" formControlName="county" name="county" 
                               [allowClear]="true" [multiple]="false"
-                              [items]="counties" [active]="active_county"
-                              (data)="refreshValue($event)"
-                              (selected)="selected($event)"
-                              (removed)="removed($event)"
-                              (typed)="typed($event)"
+                              
                               placeholder="No county selected">
                             </ng-select>
                             <div class="input-group-append">

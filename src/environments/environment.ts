@@ -7,8 +7,8 @@ export const environment = {
   production: false,
   APP_URL: 'https://pmtonline.herokuapp.com',
   //PEACE_API: 'http://localhost:3000/api',
-  //PEACE_API: 'https://jibrila.herokuapp.com/api',
-  PEACE_API: 'http://192.168.6.147:3000/api',
+  PEACE_API: 'https://jibrila.herokuapp.com/api',
+  // PEACE_API: 'http://192.168.6.147:3000/api',
 
   FLUTTERWAVE_TXN_URL: 'https://ravesandboxapi.flutterwave.com/flwv3-pug/getpaidx/api/v2/hosted/pay',
   FLUTTERWAVE_VERIFY_URL: 'https://ravesandboxapi.flutterwave.com/flwv3-pug/getpaidx/api/v2/verify',

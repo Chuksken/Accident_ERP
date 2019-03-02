@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { ApiService } from '../../../_services';
 import { Terminal, ApiResponse, SelectOptionInterface } from '../../../_models';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @Component({
@@ -14,11 +15,26 @@ import { Terminal, ApiResponse, SelectOptionInterface } from '../../../_models';
 export class AccidentAddComponent implements OnInit {
   addForm: FormGroup;
 
-  cities: SelectOptionInterface[];
-  activeCity: SelectOptionInterface[];
+  // cities: SelectOptionInterface[];
+  // activeCity: SelectOptionInterface[];
+
+  // counties: SelectOptionInterface[];
+  // activeCounty: SelectOptionInterface[];
+
+  vehicles: SelectOptionInterface[];
+  activeVehicle: SelectOptionInterface[];
 
   counties: SelectOptionInterface[];
   activeCounty: SelectOptionInterface[];
+
+  drivers: SelectOptionInterface[];
+  activedriver: SelectOptionInterface[];
+
+  states: SelectOptionInterface[];
+  activeState: SelectOptionInterface[];
+
+  routes: SelectOptionInterface[];
+  activeRoute: SelectOptionInterface[];
 
   private value = {};
 
@@ -26,41 +42,64 @@ export class AccidentAddComponent implements OnInit {
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
-      name: [''],
-      manager: [''],
-      phone: [''],
-      quarter: [''],
-      city: [''], // object;
-      county: [''], // object;
-      address: [''],
-      longitude: [''], // number;
-      latitude: [''], // number;
-      capacity: [''], // number;
-      is_pml_operational: [''], // boolean;
-      is_pmt_operational: [''], // boolean;
-      is_pmt_online: [''], // boolean;
-      photo: [''],
-      flw_subaccount_id: [''], // object;
+      // name: [''],
+      // manager: [''],
+      // phone: [''],
+      // quarter: [''],
+      // city: [''], // object;
+      // county: [''], // object;
+      // address: [''],
+      // longitude: [''], // number;
+      // latitude: [''], // number;
+      // capacity: [''], // number;
+      // is_pml_operational: [''], // boolean;
+      // is_pmt_operational: [''], // boolean;
+      // is_pmt_online: [''], // boolean;
+      // photo: [''],
+      // flw_subaccount_id: [''], // object;
+	
+      
+      vehicle_id:	 [''],	
+      driver_id:	 [''],	
+      route_id:	 [''],	
+      state_id:	[''],	
+      county_id:	 [''],	
+      occurred_place:	 [''],	
+      occurred_date:	 [''],
+      nature:	 [''],	
+      casualty:	 [''],	
+      major_cause:	 [''],	
+      minor_cause:	 [''],	
+      collider:	 [''],	
+      description: [''],	
+      verdict:	 [''],	
+      compensation:	 [''],	
+      remark:	 [''],	
+      record_status: [''],	
     });
 
-    this.getCities();
+    this.getVehicles();
     this.getCounties();
+    this.getDrivers();
+    this.getStates();
+    this.getRoutes();
   }
 
 
-  getCities() {
-    const storedRecords = window.localStorage.getItem('city');
-    const updated = window.localStorage.getItem('city_updated');
+  getVehicles() {
+    const storedRecords = window.localStorage.getItem('vehicle');
+    const updated = window.localStorage.getItem('vehicle_updated');
     if (storedRecords) {
-        this.cities = JSON.parse(storedRecords);
-        console.log(`Records of cities retrieved since ${updated}`);
+        this.vehicles = JSON.parse(storedRecords);
+        console.log(`Records of vehicles retrieved since ${updated}`);
+        console.log(this.vehicles);
         return;
     }
-    this.apiService.retrieveCity('?fields=id,name').subscribe( data => {
+    this.apiService.retrieveVehicle('?fields=id,name').subscribe( data => {
       if (data.success) {
-        this.cities = data.payload.map(item => ({ id: item.id, text: item.name }));
-        window.localStorage.setItem('city', JSON.stringify(this.counties));
-        window.localStorage.setItem('city_updated', JSON.stringify(new Date()));
+        this.vehicles = data.payload.map(item => ({ id: item.id, text: item.name }));
+        window.localStorage.setItem('vehicle', JSON.stringify(this.counties));
+        window.localStorage.setItem('vehicle_updated', JSON.stringify(new Date()));
       } else {
         // this.cities = [ { id: '1a', text: 'Nsukka' }];
         console.log(data.message);
@@ -88,6 +127,66 @@ export class AccidentAddComponent implements OnInit {
     });
   }
 
+  getDrivers() {
+    const storedRecords = window.localStorage.getItem('driver');
+    const updated = window.localStorage.getItem('driver_updated');
+    if (storedRecords) {
+        this.counties = JSON.parse(storedRecords);
+        console.log(`Records of drivers retrieved since ${updated}`);
+        return;
+    }
+    this.apiService.retrieveCounty('?fields=id,surname').subscribe( data => {
+      if (data.success) {
+        this.counties = data.payload.map(item => ({ id: item.id, text: item.name }));
+        window.localStorage.setItem('driver', JSON.stringify(this.counties));
+        window.localStorage.setItem('driver_updated', JSON.stringify(new Date()));
+      } else {
+        // this.counties = [{ id: 'fa', text: 'Anambra' }];
+      console.log(data.message);
+      }
+    });
+  }
+
+  getRoutes() {
+    const storedRecords = window.localStorage.getItem('route');
+    const updated = window.localStorage.getItem('route_updated');
+    if (storedRecords) {
+        this.counties = JSON.parse(storedRecords);
+        console.log(`Records of routes retrieved since ${updated}`);
+        return;
+    }
+    this.apiService.retrieveCounty('?fields=id,category').subscribe( data => {
+      if (data.success) {
+        this.counties = data.payload.map(item => ({ id: item.id, text: item.name }));
+        window.localStorage.setItem('route', JSON.stringify(this.counties));
+        window.localStorage.setItem('route_updated', JSON.stringify(new Date()));
+      } else {
+        // this.counties = [{ id: 'fa', text: 'Anambra' }];
+      console.log(data.message);
+      }
+    });
+  }
+  getStates() {
+    const storedRecords = window.localStorage.getItem('state');
+    const updated = window.localStorage.getItem('state_updated');
+    if (storedRecords) {
+        this.counties = JSON.parse(storedRecords);
+        console.log(`Records of states retrieved since ${updated}`);
+        return;
+    }
+    this.apiService.retrieveCounty('?fields=id,name').subscribe( data => {
+      if (data.success) {
+        this.counties = data.payload.map(item => ({ id: item.id, text: item.name }));
+        window.localStorage.setItem('state', JSON.stringify(this.counties));
+        window.localStorage.setItem('state_updated', JSON.stringify(new Date()));
+      } else {
+        // this.counties = [{ id: 'fa', text: 'Anambra' }];
+      console.log(data.message);
+      }
+    });
+  }
+
+
 
   onSubmit() {
     const payload = this.addForm.value;
@@ -109,7 +208,7 @@ export class AccidentAddComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['terminal']);
+    this.router.navigate(['accident']);
   }
 
   public selected(value: any): void {

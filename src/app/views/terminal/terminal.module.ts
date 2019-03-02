@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SelectModule } from 'ng2-select';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { TerminalRoutingModule } from './terminal-routing.module';
 import { TerminalComponent } from './terminal.component';
@@ -16,7 +16,7 @@ import { TerminalEditComponent } from './terminal-edit/terminal-edit.component';
     FormsModule,
     ReactiveFormsModule,
     TerminalRoutingModule,
-    SelectModule
+    NgSelectModule
 
   ]
 })
