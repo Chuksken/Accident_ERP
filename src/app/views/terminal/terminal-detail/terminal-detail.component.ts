@@ -45,7 +45,7 @@ export class TerminalDetailComponent implements OnInit {
     }
 
     this.terminal = this.utilsService.cleanObject(this.getRecord(terminalId));
-
+    this.address
     this.id = this.terminal.id || '';
     this.name = this.terminal.name || '';
     this.manager = this.terminal.manager;

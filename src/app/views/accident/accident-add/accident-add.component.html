@@ -1,7 +1,7 @@
 <div class="animated fadeIn">
     <div class="row">
       <div class="col-sm-12">
-        <div class="card">
+        <div class="card" style="color:cornflowerblue">
           <div class="card-header">
             <h4>Add Accident</h4>
             <div class="pull-right">
@@ -19,7 +19,7 @@
                 <div class="card-header">
                   Complete and submit the form to create a new Accident
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="color:darkslategray">
   
                     <div class="form-group">
                       <div class="input-group">
@@ -27,7 +27,7 @@
                           <span class="input-group-text">Name</span>
                         </div> -->
                         
-                        <input type="text" id="occurred_place" formControlName="occurred_place" name="occurred_place" class="form-control" placeholder="Enter Occurred Place">
+                        <input type="text" formControlName="occurred_place" name="occurred_place" class="form-control" placeholder="Enter Occurred Place">
                         <div class="input-group-append">
                           <span class="input-group-text"><i class="fa fa-user"></i></span>
                         </div>
@@ -39,31 +39,31 @@
                           <!-- <div class="input-group-prepend">
                             <span class="input-group-text">Manager</span>
                           </div> -->
-                          <input type="text" id="casualty" formControlName="casualty" name="casualty" class="form-control" placeholder="Enter Number of casualty">
+                          <input type="text" formControlName="casualty" name="casualty" class="form-control" placeholder="Enter Number of casualty">
                           <div class="input-group-append">
                             <span class="input-group-text"><i class="fa fa-user"></i></span>
                           </div>
                         </div>
                       </div>
   
-                      <div class="form-group">
-                          <div class="input-group">
+                      <!-- <div class="form-group">
+                          <div class="input-group"> -->
                             <!-- <div class="input-group-prepend">
                               <span class="input-group-text">Phone</span>
                             </div> -->
-                            <input type="tel" id="major_cause" formControlName="major_cause" name="major_cause" class="form-control" placeholder="Enter Accident Cause ">
+                            <!-- <input type="tel" formControlName="major_cause" name="major_cause" class="form-control" required placeholder="Enter Accident Cause ">
                             <div class="input-group-append">
                               <span class="input-group-text"><i class="fa fa-ban"></i></span>
                             </div>
                           </div>
-                        </div>
+                        </div> -->
   
                         <div class="form-group">
                             <div class="input-group">
                               <!-- <div class="input-group-prepend">
                                 <span class="input-group-text">Quarter</span>
                               </div> -->
-                              <input type="text" id="collider" formControlName="collider" name="collider" class="form-control" placeholder="Accident collider">
+                              <input type="text" formControlName="collider" name="collider" class="form-control" placeholder="Accident collider">
                               <div class="input-group-append">
                                 <span class="input-group-text"><i class="fa fa-user"></i></span>
                               </div>
@@ -75,9 +75,11 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text">County</span>
                             </div>
-                            <ng-select id="county_id" formControlName="county_id" name="county_id" 
+                            <ng-select formControlName="county_id" name="county_id"
+                              [items]="counties"
+                              bindLabel="text" 
+                          
                               
-                              [items]="counties" 
                               
                               placeholder="select Accident County">
                             </ng-select>
@@ -92,9 +94,11 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text">Vehicle</span>
                             </div>
-                            <ng-select id="vehicle_id" formControlName="vehicle_id" name="vehicle_id" 
+                            <ng-select formControlName="vehicle_id" name="vehicle_id" 
                              
                               [items]="vehicles" 
+                              bindLabel="text" 
+                              bindvalue ="id"
                              
                               placeholder="Select Accident Vehicle">
                             </ng-select>
@@ -108,11 +112,11 @@
                               <div class="input-group-prepend">
                                 <span class="input-group-text">Driver</span>
                               </div>
-                              <ng-select id="driver_id" formControlName="driver_id" name="driver_id" 
+                              <ng-select formControlName="driver_id" name="driver_id" 
                                 
                                 [items]="drivers"
-                                bindValue='id'
-                                bindLabel='text'
+                                bindLabel="text" 
+                              
                                 
                                 placeholder="Select Accident Driver....">
                               </ng-select>
@@ -127,9 +131,11 @@
                               <div class="input-group-prepend">
                                 <span class="input-group-text">State</span>
                               </div>
-                              <ng-select id="state_id" formControlName="state_id" name="state_id" 
+                              <ng-select formControlName="state_id" name="state_id" 
                                
                                 [items]="states" 
+                                bindLabel="text" 
+                          
                               
                                 placeholder="Select Accident State.......">
                               </ng-select>
@@ -147,6 +153,8 @@
                                 <ng-select id="route_id" formControlName="route_id" name="route_id" 
                                   
                                   [items]="routes"
+                                  bindLabel="text" 
+                                  
                 
                                   placeholder="Select Accident route.....">
                                 </ng-select>
@@ -171,7 +179,7 @@
                           <!-- <div class="input-group-prepend">
                             <span class="input-group-text">Longitude</span>
                           </div> -->
-                          <input type="text area" id="description" formControlName="description" name="description" class="form-control" placeholder="Accident description">
+                          <input type="text area" formControlName="description" name="description" class="form-control" placeholder="Accident description">
                           <div class="input-group-append">
                             <span class="input-group-text"><i class="fa fa-user"></i></span>
                           </div>
@@ -183,7 +191,7 @@
                           <!-- <div class="input-group-prepend">
                             <span class="input-group-text">Latitude</span>
                           </div> -->
-                          <input type="number" id="compensation" formControlName="compensation" name="compensation" class="form-control" placeholder="Accident compensation(number)">
+                          <input type="number" formControlName="compensation" name="compensation" class="form-control" placeholder="Accident compensation(number)">
                           <div class="input-group-append">
                             <span class="input-group-text"><i class="fa fa-user"></i></span>
                           </div>
@@ -193,10 +201,10 @@
                       <div class="form-group row">
                           <!-- <label class="col-md-3 col-form-label" for="select1">Select</label> -->
                           <div class="col-md-9">
-                            <select id="gravity" name="gravity" class="form-control">
-                              <option value="0">Please select gravity</option>
-                              <option value="1">MINOR</option>
-                              <option value="2">FATAL</option>
+                            <select formControlName="gravity" name="select2" class="form-control form-control-lg">
+                              <option >Please select gravity</option>
+                              <option >MINOR</option>
+                              <option >FATAL</option>
                               <!-- <option value="3">Option #3</option> -->
                             </select>
                           </div>
@@ -205,10 +213,10 @@
                         <div class="form-group row">
                             <!-- <label class="col-md-3 col-form-label" for="select1">Select</label> -->
                             <div class="col-md-9">
-                              <select id="verdict" name="verdict" class="form-control">
-                                <option value="0">Please select accident verdict</option>
-                                <option value="1">GUILTY</option>
-                                <option value="2">INNOCENT</option>
+                              <select formControlName="verdict" name="select2" class="form-control">
+                                <option>Please select accident verdict</option>
+                                <option>GUILTY</option>
+                                <option>INNOCENT</option>
                                 <!-- <option value="3">Option #3</option> -->
                               </select>
                             </div>
@@ -217,24 +225,26 @@
                           <div class="form-group row">
                               <!-- <label class="col-md-3 col-form-label" for="date-input">Date Input</label> -->
                               <div class="col-md-9">
-                                <input class="form-control" id="occurred_date" type="occurred_date" name="occurred_date" placeholder="Accident date">
+                                <input class="form-control" formControlName="occurred_date" type="date" name="date-input">
                                 <span class="help-block">Please enter accident date</span>
                               </div>
                             </div>
+
   
-                    <div class="form-group">
-                        <div class="input-group">
-                          <!-- <div class="input-group-prepend">
-                            <span class="input-group-text">PMT Operational</span>
-                          </div> -->
-                          <input type="text" id="record_status" formControlName="record_status" name="record_status" class="form-control" autocomplete="email" placeholder="Enter Accident record comment">
-                          <div class="input-group-append">
-                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                          </div>
+                      <div class="form-group row">
+                        <!-- <label class="col-md-3 col-form-label" for="select1">Select</label> -->
+                        <div class="col-md-9">
+                          <select  formControlName="remark" name="select2" class="form-control">
+                            <option value="0">Please select Status</option>
+                            <option value="1"> PENDING</option>
+                            <option value="2">ARBITRATION</option>
+                            <option value="3">COMPENSATION</option>
+                            <option value="4">CLOSED</option>
+                            <!-- <option value="3">Option #3</option> -->
+                          </select>
                         </div>
                       </div>
-  
-                    
+                      
   
                       <!-- <div class="form-group">
                           <div class="input-group">

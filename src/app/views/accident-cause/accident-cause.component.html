@@ -90,9 +90,9 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          ACCIDENT LIST
+          ACCIDENT CAUSE LIST
           <div class="pull-right">
-              <button class="btn btn-sm btn-info" style="width:100px" (click)="accidentAdd()">  Add Accident</button>
+              <button class="btn btn-sm btn-info" style="width:100px" (click)="accidentCauseAdd()">  Add Accident Cause</button>
           </div>
         </div>
         <div class="card-body">
@@ -103,30 +103,30 @@
             <tr>
               <th class="text-center">SN</th>
               <!-- <th>Vehicle</th> -->
-              <th>Occurred Date</th>
-              <th>Occurred Place</th>
+              <th>Name</th>
+              <th>Offender</th>
               <!-- <th>Vehicle Plate number</th> -->
-              <th>Record Status</th>
+              <th>Description</th>
               
               <!-- <th class="text-center"><i class="icon-people"></i></th> -->
               <th width='20%' class="text-center">Action</th>
             </tr>
             </thead>
             <tbody>
-            <tr  *ngFor="let record of accidents; let i = index">
+            <tr  *ngFor="let record of accidentCauses; let i = index">
               <td>{{ i + 1 }}</td>
               <!-- <td>{{ record.vehicle_id.vehicle_make }}</td> -->
-              <td>{{ record.occurred_date}}</td>
-              <td>{{ record.occurred_place }}</td>
+              <td>{{ record.name}}</td>
+              <td>{{ record.offender }}</td>
               <!-- <td>{{ record.vehicle_id.plate_number }}</td> -->
               <td>
                   <!-- <div class="small text-muted">{{ record.verdict }}</div> -->
-                  <strong>{{ record.record_status }}</strong>
+                  <strong>{{ record.description }}</strong>
               </td>
               <td class="text-center">
-                  <button type="button" (click)="accidentDetail(record)" class="btn btn-sm btn-info"><i class="fa fa-windows"></i></button>
-                  <button type="button" (click)="accidentEdit(record)" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button>
-                  <button type="button" (click)="accidentDelete(record)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                  <button type="button" (click)="accidentCauseDetail(record)" class="btn btn-sm btn-info"><i class="fa fa-windows"></i></button>
+                  <button type="button" (click)="accidentCauseEdit(record)" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button>
+                  <button type="button" (click)="accidentCauseDelete(record)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
               </td>
             </tr>
             </tbody>

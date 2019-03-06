@@ -7,6 +7,7 @@ export const navItems = [
   { name: 'Accident', url: '/accident', icon: 'icon-puzzle',
     children: [
       { name: 'Accident', url: '/accident', icon: 'icon-puzzle'},
+      { name: 'Accident Cause', url: '/accident-cause', icon: 'icon-puzzle'},
       { name: 'Carousels', url: '/base/carousels', icon: 'icon-puzzle'},
       { name: 'Collapses', url: '/base/collapses', icon: 'icon-puzzle'},
       { name: 'Forms', url: '/base/forms', icon: 'icon-puzzle'},
@@ -58,8 +59,9 @@ export const navItems = [
     ]
   },
   { name: 'Terminal', url: '/terminal', icon: 'icon-calculator'},
-     
+  { name: 'Accident Cause', url: '/accident-cause', icon: 'icon-puzzle'},
   { name: 'Staff', url: '/staff', icon: 'icon-calculator' },
+
   { name: 'Profile', url: '/profile', icon: 'icon-calculator' },
   { name: 'Vehicle', url: '/vehicle', icon: 'icon-calculator' },
   { name: 'Assignment', url: '/assignment', icon: 'icon-calculator' },

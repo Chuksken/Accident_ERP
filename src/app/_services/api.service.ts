@@ -27,8 +27,11 @@ export class ApiService {
     apiUrl = environment.PEACE_API;
     constructor(private http: HttpClient, private utilsService: UtilsService) { }
     //accident
-    getAccident(query = '') {
-        return this.http.get<ApiResponse>(`${this.apiUrl}/accidents${query}`);
+    // getAccident(query = '') {
+    //     return this.http.get<ApiResponse>(`${this.apiUrl}/accidents${query}`);
+    // }
+    getAccident(accidents, id): Accident {
+        return accidents.filter(obj => obj.id === id);
     }
      
      retrieveAccident(query = ''): Observable<ApiResponse> {
@@ -49,7 +52,33 @@ export class ApiService {
     }
 
     deleteAccident(id: Terminal['id']): Observable<ApiResponse> {
-        return this.http.delete<ApiResponse>(`${this.apiUrl}/terminals/${id}`);
+        return this.http.delete<ApiResponse>(`${this.apiUrl}/accidents/${id}`);
+    }
+
+    //Accident Cause
+    getAccidentCause(accidents, id): Accident {
+        return accidents.filter(obj => obj.id === id);
+    }
+     
+     retrieveAccidentCause(query = ''): Observable<ApiResponse> {
+        return this.http.get<ApiResponse>(`${this.apiUrl}/accident-causes${query}`);
+    }
+
+    updateAccidentCause(terminal: Terminal): Observable<ApiResponse> {
+        const id = terminal.id;
+        delete terminal.id;
+        const payload = this.utilsService.cleanObject(terminal);
+        return this.http.put<ApiResponse>(`${this.apiUrl}/accident-causes/${id}`, payload);
+    }
+
+    createAccidentCause(terminal: Terminal): Observable<ApiResponse> {
+        delete terminal.id;
+        const payload = this.utilsService.cleanObject(terminal);
+        return this.http.post<ApiResponse>(`${this.apiUrl}/accident-causes`, payload);
+    }
+
+    deleteAccidentCause(id: Terminal['id']): Observable<ApiResponse> {
+        return this.http.delete<ApiResponse>(`${this.apiUrl}/accident-causes/${id}`);
     }
 
     // getAccident(terminals, id): Terminal {
@@ -132,7 +161,7 @@ export class ApiService {
         return this.http.get<ApiResponse>(`${this.apiUrl}/drivers${query}`);
     }
     retrieveRoute(query = ''): Observable<ApiResponse> {
-        return this.http.get<ApiResponse>(`${this.apiUrl}/routes${query}`);
+        return this.http.get<ApiResponse>(`${this.apiUrl}/pmt-routes${query}`);
     }
     retrieveState(query = ''): Observable<ApiResponse> {
         return this.http.get<ApiResponse>(`${this.apiUrl}/states${query}`);

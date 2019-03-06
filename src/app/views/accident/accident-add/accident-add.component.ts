@@ -66,6 +66,7 @@ export class AccidentAddComponent implements OnInit {
       county_id:	 [''],	
       occurred_place:	 [''],	
       occurred_date:	 [''],
+      gravity: [''],
       nature:	 [''],	
       casualty:	 [''],	
       major_cause:	 [''],	
@@ -98,7 +99,7 @@ export class AccidentAddComponent implements OnInit {
     this.apiService.retrieveVehicle('?fields=id,name').subscribe( data => {
       if (data.success) {
         this.vehicles = data.payload.map(item => ({ id: item.id, text: item.name }));
-        window.localStorage.setItem('vehicle', JSON.stringify(this.counties));
+        window.localStorage.setItem('vehicle', JSON.stringify(this.vehicles));
         window.localStorage.setItem('vehicle_updated', JSON.stringify(new Date()));
       } else {
         // this.cities = [ { id: '1a', text: 'Nsukka' }];
@@ -113,6 +114,7 @@ export class AccidentAddComponent implements OnInit {
     if (storedRecords) {
         this.counties = JSON.parse(storedRecords);
         console.log(`Records of counties retrieved since ${updated}`);
+        console.log(this.counties);
         return;
     }
     this.apiService.retrieveCounty('?fields=id,name').subscribe( data => {
@@ -126,19 +128,39 @@ export class AccidentAddComponent implements OnInit {
       }
     });
   }
-
+  getStates() {
+    const storedRecords = window.localStorage.getItem('state');
+    const updated = window.localStorage.getItem('state_updated');
+    if (storedRecords) {
+        this.states = JSON.parse(storedRecords);
+        console.log(`Records of states retrieved since ${updated}`);
+        console.log(this.states);
+        return;
+    }
+    this.apiService.retrieveState('?fields=id,name').subscribe( data => {
+      if (data.success) {
+        this.states = data.payload.map(item => ({ id: item.id, text: item.name }));
+        window.localStorage.setItem('state', JSON.stringify(this.states));
+        window.localStorage.setItem('state_updated', JSON.stringify(new Date()));
+      } else {
+        // this.counties = [{ id: 'fa', text: 'Anambra' }];
+      console.log(data.message);
+      }
+    });
+  }
   getDrivers() {
     const storedRecords = window.localStorage.getItem('driver');
     const updated = window.localStorage.getItem('driver_updated');
     if (storedRecords) {
-        this.counties = JSON.parse(storedRecords);
+        this.drivers = JSON.parse(storedRecords);
         console.log(`Records of drivers retrieved since ${updated}`);
+        console.log(this.drivers);
         return;
     }
-    this.apiService.retrieveCounty('?fields=id,surname').subscribe( data => {
+    this.apiService.retrieveDriver('?fields=id,surname').subscribe( data => {
       if (data.success) {
-        this.counties = data.payload.map(item => ({ id: item.id, text: item.name }));
-        window.localStorage.setItem('driver', JSON.stringify(this.counties));
+        this.drivers = data.payload.map(item => ({ id: item.id, text: item.surname }));
+        window.localStorage.setItem('driver', JSON.stringify(this.drivers));
         window.localStorage.setItem('driver_updated', JSON.stringify(new Date()));
       } else {
         // this.counties = [{ id: 'fa', text: 'Anambra' }];
@@ -151,14 +173,15 @@ export class AccidentAddComponent implements OnInit {
     const storedRecords = window.localStorage.getItem('route');
     const updated = window.localStorage.getItem('route_updated');
     if (storedRecords) {
-        this.counties = JSON.parse(storedRecords);
+        this.routes = JSON.parse(storedRecords);
         console.log(`Records of routes retrieved since ${updated}`);
+        console.log(this.routes);
         return;
     }
-    this.apiService.retrieveCounty('?fields=id,category').subscribe( data => {
+    this.apiService.retrieveRoute('?fields=id,category').subscribe( data => {
       if (data.success) {
-        this.counties = data.payload.map(item => ({ id: item.id, text: item.name }));
-        window.localStorage.setItem('route', JSON.stringify(this.counties));
+        this.routes = data.payload.map(item => ({ id: item.id, text: item.category }));
+        window.localStorage.setItem('route', JSON.stringify(this.routes));
         window.localStorage.setItem('route_updated', JSON.stringify(new Date()));
       } else {
         // this.counties = [{ id: 'fa', text: 'Anambra' }];
@@ -166,44 +189,32 @@ export class AccidentAddComponent implements OnInit {
       }
     });
   }
-  getStates() {
-    const storedRecords = window.localStorage.getItem('state');
-    const updated = window.localStorage.getItem('state_updated');
-    if (storedRecords) {
-        this.counties = JSON.parse(storedRecords);
-        console.log(`Records of states retrieved since ${updated}`);
-        return;
-    }
-    this.apiService.retrieveCounty('?fields=id,name').subscribe( data => {
-      if (data.success) {
-        this.counties = data.payload.map(item => ({ id: item.id, text: item.name }));
-        window.localStorage.setItem('state', JSON.stringify(this.counties));
-        window.localStorage.setItem('state_updated', JSON.stringify(new Date()));
-      } else {
-        // this.counties = [{ id: 'fa', text: 'Anambra' }];
-      console.log(data.message);
-      }
-    });
-  }
+ 
 
 
 
   onSubmit() {
     const payload = this.addForm.value;
     console.log('Form input ', payload);
-    payload.city_id = payload.city.id;
-    payload.county_id = payload.county.id;
-    delete payload.city;
+    payload.vehicle_id = payload.vehicle;
+    payload.county_id = payload.county;
+    payload.state_id = payload.state;
+    payload.driver_id = payload.driver;
+    payload.route_id = payload.route;
+    delete payload.vehicle;
     delete payload.county;
-    this.apiService.createTerminal(payload).subscribe( data => {
+    delete payload.driver;
+    delete payload.state;
+    delete payload.route;
+    this.apiService.createAccident(payload).subscribe( data => {
       console.log(data);
       if (data.success) {
-        window.localStorage.setItem('terminalDetailId', data.payload.id);
-        this.router.navigate(['terminal/detail']);
+        window.localStorage.setItem('accidentDetailId', data.payload.id);
+        this.router.navigate(['accident/detail']);
       } else {
         console.log(data.message);
       }
-        this.router.navigate(['terminal']);
+        this.router.navigate(['accident']);
       });
   }
 

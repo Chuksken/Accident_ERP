@@ -1,28 +1,30 @@
 import { Vehicle } from './vehicle';
-import { User } from './user';
-import { route } from './route';
+import { PmtRoute } from './pmtroute';
 import { state } from './state';
 import { County } from './county';
+import { driver } from './driver';
+
 
 export class Accident
 {
 id: string;
 //accident_id: Number;	
 vehicle_id:	Vehicle;	
-driver_id:	User;	
-route_id:	route;	
+driver_id:	driver;	
+route_id:	PmtRoute;	
 state_id:	state;	
 county_id:	County;	
-occurred_place:	String;	
-occurred_date:	Date;	
-nature:	String;	
-casualty:	String;	
-major_cause:	String;	
-minor_cause:	String;	
-collider:	String;	
-description:	String;	
-verdict:	String;	
+occurred_place:	string;	
+occurred_date:	Date;
+gravity: string;	
+nature:	string;	
+casualty:	string;	
+major_cause:	string;	
+minor_cause:	string;	
+collider:	string;	
+description:	string;	
+verdict:	string;	
 compensation:	Number;	
-remark:	String;	
-record_status:	String;	
+remark:	string;	
+record_status:	string;	
 }

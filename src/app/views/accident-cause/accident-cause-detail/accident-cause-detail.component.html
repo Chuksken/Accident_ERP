@@ -90,47 +90,28 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          ACCIDENT LIST
+          <h2>{{ name || ' Accident Detail' }}</h2>
           <div class="pull-right">
-              <button class="btn btn-sm btn-info" style="width:100px" (click)="accidentAdd()">  Add Accident</button>
+              <button class="btn btn-sm btn-primary" style="width:100px" (click)="accidentCauseEdit(accidentCause)"> Edit</button>
+              <button class="btn btn-sm btn-info" style="width:100px" (click)="goBack()"><i class="fa fa-reply"></i></button>
           </div>
         </div>
         <div class="card-body">
           
           <br>
-          <table id="table_id" class="table table-hover table-striped table-condensed table-responsive-sm table-outline mb-0"  *ngIf="success">
+          <table class="table table-responsive-sm table-hover table-outline mb-0">
             <thead class="thead-light">
-            <tr>
-              <th class="text-center">SN</th>
-              <!-- <th>Vehicle</th> -->
-              <th>Occurred Date</th>
-              <th>Occurred Place</th>
-              <!-- <th>Vehicle Plate number</th> -->
-              <th>Record Status</th>
-              
-              <!-- <th class="text-center"><i class="icon-people"></i></th> -->
-              <th width='20%' class="text-center">Action</th>
-            </tr>
+              <tr><th>Field</th><th>Value</th></tr>
             </thead>
             <tbody>
-            <tr  *ngFor="let record of accidents; let i = index">
-              <td>{{ i + 1 }}</td>
-              <!-- <td>{{ record.vehicle_id.vehicle_make }}</td> -->
-              <td>{{ record.occurred_date}}</td>
-              <td>{{ record.occurred_place }}</td>
-              <!-- <td>{{ record.vehicle_id.plate_number }}</td> -->
-              <td>
-                  <!-- <div class="small text-muted">{{ record.verdict }}</div> -->
-                  <strong>{{ record.record_status }}</strong>
-              </td>
-              <td class="text-center">
-                  <button type="button" (click)="accidentDetail(record)" class="btn btn-sm btn-info"><i class="fa fa-windows"></i></button>
-                  <button type="button" (click)="accidentEdit(record)" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button>
-                  <button type="button" (click)="accidentDelete(record)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-              </td>
-            </tr>
+              
+              <tr><th>Name</th><td>{{ name || '' }}</td></tr>
+              <tr><th>Offender</th><td>{{ offender || '' }}</td></tr>
+              <tr><th>description</th><td>{{ description || '' }}</td></tr>
+              <!-- <tr><th>Photo</th><td>{{ photo || '' }}</td></tr>
+              <tr><th>Flw-Subaccount</th><td>{{ flw_subaccount || '' }}</td></tr> -->
             </tbody>
-        </table>
+          </table>
         </div>
       </div>
     </div><!--/.col-->
