@@ -81,6 +81,33 @@ export class ApiService {
         return this.http.delete<ApiResponse>(`${this.apiUrl}/accident-causes/${id}`);
     }
 
+
+    //Accident victim
+    getAccidentVictim(accidents, id): Accident {
+        return accidents.filter(obj => obj.id === id);
+    }
+     
+     retrieveAccidentVictim(query = ''): Observable<ApiResponse> {
+        return this.http.get<ApiResponse>(`${this.apiUrl}/accident-victims${query}`);
+    }
+
+    updateAccidentVictim(terminal: Terminal): Observable<ApiResponse> {
+        const id = terminal.id;
+        delete terminal.id;
+        const payload = this.utilsService.cleanObject(terminal);
+        return this.http.put<ApiResponse>(`${this.apiUrl}/accident-victims/${id}`, payload);
+    }
+
+    createAccidentVictim(terminal: Terminal): Observable<ApiResponse> {
+        delete terminal.id;
+        const payload = this.utilsService.cleanObject(terminal);
+        return this.http.post<ApiResponse>(`${this.apiUrl}/accident-victims`, payload);
+    }
+
+    deleteAccidentVictim(id: Terminal['id']): Observable<ApiResponse> {
+        return this.http.delete<ApiResponse>(`${this.apiUrl}/accident-victims/${id}`);
+    }
+
     // getAccident(terminals, id): Terminal {
     //     return terminals.filter(obj => obj.id === id);
     // }

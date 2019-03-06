@@ -8,6 +8,7 @@ export const navItems = [
     children: [
       { name: 'Accident', url: '/accident', icon: 'icon-puzzle'},
       { name: 'Accident Cause', url: '/accident-cause', icon: 'icon-puzzle'},
+      { name: 'Accident Victim', url: '/accident-victim', icon: 'icon-puzzle'},
       { name: 'Carousels', url: '/base/carousels', icon: 'icon-puzzle'},
       { name: 'Collapses', url: '/base/collapses', icon: 'icon-puzzle'},
       { name: 'Forms', url: '/base/forms', icon: 'icon-puzzle'},

@@ -28,6 +28,7 @@ export const routes: Routes = [
       { path: 'widgets', loadChildren: './views/widgets/widgets.module#WidgetsModule' },
       { path: 'accident', loadChildren: './views/accident/accident.module#AccidentModule' },
       { path: 'accident-cause', loadChildren: './views/accident-cause/accident-cause.module#AccidentCauseModule' },
+      { path: 'accident-victim', loadChildren: './views/accident-victim/accident-victim.module#AccidentVictimModule' },
       { path: 'assignment', loadChildren: './views/assignment/assignment.module#AssignmentModule' },
       { path: 'maintenance', loadChildren: './views/maintenance/maintenance.module#MaintenanceModule' },
       { path: 'offence', loadChildren: './views/offence/offence.module#OffenceModule' },

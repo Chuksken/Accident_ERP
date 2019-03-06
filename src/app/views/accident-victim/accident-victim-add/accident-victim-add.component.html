@@ -1,0 +1,131 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card" style="color:cornflowerblue">
+        <div class="card-header">
+          <h4>Add Accident</h4>
+          <div class="pull-right">
+              <button class="btn btn-sm btn-info" style="width:100px" (click)="goBack()"><i class="fa fa-reply"></i></button>
+          </div>
+        </div>
+        <div class="card-body">
+       
+          <!-- form content -->
+      <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-header">
+              <strong>Credit Card</strong>
+              <small>Form</small>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your full name">
+                  </div>
+                </div>
+              </div><!--/.row-->
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="ccnumber">Phone No</label>
+                    <input type="text" class="form-control" id="ccnumber" placeholder=" 0000 0000 0000">
+                  </div>
+                </div>
+              </div><!--/.row-->
+              <div class="row">
+                <div class="form-group col-sm-4">
+                  <label for="ccmonth">Gender</label>
+                  <select class="form-control" id="ccmonth">
+                    <option>Female</option>
+                    <option>Male</option>
+                    
+                  </select>
+                </div>
+                <div class="form-group col-sm-4">
+                  <label for="ccyear">Age group</label>
+                  <select class="form-control" id="ccyear">
+                    <option>ADULT</option>
+                    <option>CHILD</option>
+                    
+                  </select>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="ccyear">Type</label>
+                    <select class="form-control" id="ccyear">
+                      <option>PASSENGER</option>
+                      <option>COLLIDER</option>
+                     
+                    </select>
+                  </div>
+              </div><!--/.row-->
+            </div>
+          </div>
+        </div><!--/.col-->
+        <div class="col-sm-6">
+          <div class="card">
+            <!-- <div class="card-header">
+              <strong>Company</strong>
+              <small>Form</small>
+            </div> -->
+            <div class="card-body">
+              <!-- <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" class="form-control" id="company" placeholder="Enter your company name">
+              </div> -->
+              <div class="form-group">
+                <label for="vat">compensation</label>
+                <input type="number" class="form-control" id="vat" placeholder="Number">
+              </div>
+              <!-- <div class="form-group">
+                <label for="street">Street</label>
+                <input type="text" class="form-control" id="street" placeholder="Enter street name">
+              </div> -->
+              <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="ccyear">Situation</label>
+                    <select class="form-control" id="ccyear">
+                      <option>HOSPITALIZED</option>
+                      <option>DEAD</option>
+                     
+                    </select>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="ccyear">Accident</label>
+                    <ng-select id="route_id" formControlName="route_id" name="route_id" 
+                                  
+                    [items]="routes"
+                    bindLabel="text" 
+                    
+  
+                    placeholder="Select Accident route.....">
+                  </ng-select>
+                </div>
+              </div><!--/.row-->
+              <div class="form-group">
+                <label for="country">Remark</label>
+                <input type="text" class="form-control" id="inputError2" required  placeholder="Remark">
+              </div>
+              <div class="form-group form-actions pull-right">
+                  <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+                  <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                </div>
+            </div>
+          </div>
+        </div><!--/.col-->
+      </div><!--/.row-->
+          
+
+        
+        
+      </form>
+          <!--/. form content -->
+
+        </div>
+      </div>
+    </div>
+  </div><!--/.row-->
+</div>

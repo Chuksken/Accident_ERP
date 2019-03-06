@@ -47,6 +47,8 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { SelectModule } from 'ng2-select';
+//import { AccidentVictimComponent } from './views/accidentVictim/accident-victim/accident-victim.component';
+
 //import { AccidentCauseComponent } from './views/accident-cause/accident-cause.component';
 //import { AccidentCauseComponent } from './views/accident-cause/accident-cause.component';
 
@@ -76,6 +78,8 @@ import { SelectModule } from 'ng2-select';
     P500Component,
     LoginComponent,
     RegisterComponent
+    //AccidentVictimComponent
+    
     //AccidentCauseComponent
    
   ],

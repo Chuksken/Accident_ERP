@@ -46,7 +46,7 @@ constructor( private router: Router, private apiService: ApiService, private uti
 }
 getRecord(accidentCauseId) {
   console.log('\nAccident Id ', accidentCauseId);
-  const storedRecords = window.localStorage.getItem('accident');
+  const storedRecords = window.localStorage.getItem('accidentCause');
   const updated = window.localStorage.getItem('accident_updated');
   if (storedRecords) {
       this.accidentCauses = JSON.parse(storedRecords);
