@@ -8,3 +8,23 @@
 @import "custom";
 @import "~@ng-select/ng-select/themes/default.theme.css";
 // @import "~@ng-select/ng-select/themes/material.theme.css";
+
+.customsuccess div.ui-pnotify-container {
+  background-image: none;
+  background-color: lawngreen;
+}
+.custominfo div.ui-pnotify-container {
+  background-image: none;
+  background-color: deepskyblue;
+}
+
+.customdanger div.ui-pnotify-container {
+  background-image: none;
+  background-color: orangered;
+}
+
+.customwarn div.ui-pnotify-container {
+  background-image: none;
+  background-color: coral;
+}
+

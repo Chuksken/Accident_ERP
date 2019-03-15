@@ -8,6 +8,7 @@ import { AccidentCauseAddComponent } from './accident-cause-add/accident-cause-a
 import { AccidentCauseEditComponent } from './accident-cause-edit/accident-cause-edit.component';
 import { AccidentCauseDetailComponent } from './accident-cause-detail/accident-cause-detail.component';
 import { AccidentCauseListComponent } from './accident-cause-list/accident-cause-list.component';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [AccidentCauseComponent, AccidentCauseAddComponent, AccidentCauseEditComponent, AccidentCauseDetailComponent, AccidentCauseListComponent],
@@ -15,7 +16,8 @@ import { AccidentCauseListComponent } from './accident-cause-list/accident-cause
     CommonModule,
     AccidentCauseRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTablesModule
   ]
 })
 export class AccidentCauseModule { }

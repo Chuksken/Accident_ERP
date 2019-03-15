@@ -15,7 +15,7 @@ export class AccidentCauseComponent implements OnInit {
   success = false;
   message = '';
   accidentCauses: Array<AccidentCause>;
-
+  dtOptions: any = {};
   constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
@@ -31,6 +31,24 @@ export class AccidentCauseComponent implements OnInit {
         this.message = `Records retrieved since ${updated}`;
     } else {
       this.accidentCauseRetrieve();
+    }
+    this.dtOptions = {
+      // ajax: 'data/data.json',
+      dom: 'Bfrtip',
+      buttons: [
+        // 'columnsToggle',
+        // 'colvis',
+        'copy',
+        'print',
+        'excel',
+        {
+          // text: 'Some button',
+          // key: '1',
+          action: function (e, dt, node, config) {
+            alert('Button activated');
+          }
+        }
+      ]
     }
      //$('#table_id').DataTable();
   }

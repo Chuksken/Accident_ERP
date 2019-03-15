@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../_services';
 import { Router } from '@angular/router';
 import { Accident, ApiResponse } from '../../_models';
+import { PNotifyService } from '../../_services/pnotify.service';
 
 @Component({
   selector: 'app-accident',
@@ -16,14 +17,34 @@ export class AccidentComponent implements OnInit {
   success = false;
   message = '';
   accidents: Array<Accident>;
-
-  constructor(private router: Router, private apiService: ApiService) { }
+  dtOptions: any = {};
+  
+  pnotify = undefined;
+  constructor(private router: Router, private apiService: ApiService, private notify: PNotifyService) { }
 
   ngOnInit() {
+    this.pnotify = this.notify.getPNotify();
     if (!window.localStorage.getItem('token')) {
       this.router.navigate(['login']);
       return;
     }
+    this.dtOptions = {
+      // ajax: 'data/data.json',
+      dom: 'Bfrtip',
+    buttons: [
+      // 'columnsToggle',
+      // 'colvis',
+      'copy',
+      'print',
+      'excel',
+      {
+        // text: 'Some button',
+        // key: '1',
+        action: function (e, dt, node, config) {
+          alert('Button activated');
+        }
+      }
+    ]}
     const storedRecords = window.localStorage.getItem('accident');
     const updated = window.localStorage.getItem('accident_updated');
     if (storedRecords && updated) {

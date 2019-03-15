@@ -98,8 +98,8 @@
         <div class="card-body">
           
           <br>
-          <table id="table_id" class="table table-hover table-striped table-condensed table-responsive-sm table-outline mb-0"  *ngIf="success">
-            <thead class="thead-light">
+          <table datatable datatable [dtOptions]="dtOptions" id="table_id" class="table table-hover table-striped table-condensed table-responsive-sm table-outline mb-0"  *ngIf="success" style="background-color:gainsboro">
+            <thead class="thead-light" style="background-color:darkslateblue">
             <tr>
               <th class="text-center">SN</th>
               <!-- <th>Vehicle</th> -->

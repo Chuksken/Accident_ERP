@@ -1,8 +1,8 @@
 <div class="animated fadeIn">
-    <div class="row">
+    <div class="row" style="color:blueviolet">
       <div class="col-sm-12">
-        <div class="card" style="color:cornflowerblue">
-          <div class="card-header">
+        <div class="card" style="background-color:dimgray">
+          <div class="card-header" style="color:blue">
             <h4>Add Accident</h4>
             <div class="pull-right">
                 <button class="btn btn-sm btn-info" style="width:100px" (click)="goBack()"><i class="fa fa-reply"></i></button>
@@ -77,7 +77,8 @@
                             </div>
                             <ng-select formControlName="county_id" name="county_id"
                               [items]="counties"
-                              bindLabel="text" 
+                              bindLabel="text"
+                              bindValue="id" 
                           
                               
                               
@@ -98,7 +99,7 @@
                              
                               [items]="vehicles" 
                               bindLabel="text" 
-                              bindvalue ="id"
+                              bindValue ="id"
                              
                               placeholder="Select Accident Vehicle">
                             </ng-select>
@@ -116,7 +117,7 @@
                                 
                                 [items]="drivers"
                                 bindLabel="text" 
-                              
+                                bindValue="id"
                                 
                                 placeholder="Select Accident Driver....">
                               </ng-select>
@@ -134,7 +135,10 @@
                               <ng-select formControlName="state_id" name="state_id" 
                                
                                 [items]="states" 
-                                bindLabel="text" 
+                                bindLabel="text"
+                                
+                                bindValue="id"
+                                
                           
                               
                                 placeholder="Select Accident State.......">
@@ -153,7 +157,8 @@
                                 <ng-select id="route_id" formControlName="route_id" name="route_id" 
                                   
                                   [items]="routes"
-                                  bindLabel="text" 
+                                  bindLabel="text"
+                                  bindValue="id" 
                                   
                 
                                   placeholder="Select Accident route.....">
@@ -201,10 +206,10 @@
                       <div class="form-group row">
                           <!-- <label class="col-md-3 col-form-label" for="select1">Select</label> -->
                           <div class="col-md-9">
-                            <select formControlName="gravity" name="select2" class="form-control form-control-lg">
-                              <option >Please select gravity</option>
-                              <option >MINOR</option>
-                              <option >FATAL</option>
+                            <select formControlName="gravity" name="select2" class="form-control">
+                              <option value="0">Please select gravity</option>
+                              <option value="MINOR">MINOR</option>
+                              <option value="FATAL">FATAL</option>
                               <!-- <option value="3">Option #3</option> -->
                             </select>
                           </div>
@@ -213,10 +218,10 @@
                         <div class="form-group row">
                             <!-- <label class="col-md-3 col-form-label" for="select1">Select</label> -->
                             <div class="col-md-9">
-                              <select formControlName="verdict" name="select2" class="form-control">
-                                <option>Please select accident verdict</option>
-                                <option>GUILTY</option>
-                                <option>INNOCENT</option>
+                              <select formControlName="verdict" name="select2" class="form-control" placeholder="Please select accident verdict">
+                                <option value="0">Please select accident verdict</option>
+                                <option value="GUILTY">GUILTY</option>
+                                <option value="INNOCENT">INNOCENT</option>
                                 <!-- <option value="3">Option #3</option> -->
                               </select>
                             </div>

@@ -39,7 +39,7 @@ export const routes: Routes = [
       { path: 'schedule', loadChildren: './views/schedule/schedule.module#ScheduleModule' },
       { path: 'spares', loadChildren: './views/spares/spares.module#SparesModule' },
       { path: 'staff', loadChildren: './views/staff/staff.module#StaffModule' },
-      { path: 'terminal', loadChildren: './views/terminal/terminal.module#TerminalModule' },
+      // { path: 'terminal', loadChildren: './views/terminal/terminal.module#TerminalModule' },
       { path: 'vehicle', loadChildren: './views/vehicle/vehicle.module#VehicleModule' },
     ]
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService, UtilsService } from '../../../_services';
 import {Accident } from '../../../_models';
+// import { PNotifyService } from '../../../_services/pnotify.service';
 
 @Component({
   selector: 'app-accident-detail',
@@ -38,7 +39,7 @@ record_status = '';
 response: any;
 success = false;
 message = '';
-constructor( private router: Router, private apiService: ApiService, private utilsService: UtilsService) { }
+  constructor(private router: Router, private apiService: ApiService, private utilsService: UtilsService) { }
 
   ngOnInit() {
 
@@ -111,7 +112,7 @@ accidentAdd(): void {
 }
 
 goBack() {
-  this.router.navigate(['terminal']);
+  this.router.navigate(['accident']);
 }
 
 }

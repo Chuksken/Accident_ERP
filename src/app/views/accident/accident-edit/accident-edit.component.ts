@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { ApiService, UtilsService } from '../../../_services';
 import { ApiResponse, SelectOptionInterface, Accident } from '../../../_models';
+import { PNotifyService } from '../../../_services/pnotify.service';
 
 @Component({
   selector: 'app-accident-edit',
@@ -40,7 +41,8 @@ export class AccidentEditComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private apiService: ApiService,
-    private utilsService: UtilsService) { }
+    private utilsService: UtilsService,
+    private notify: PNotifyService) { }
 
   ngOnInit() {
     const accidentId = window.localStorage.getItem('accidentEditId');
@@ -282,7 +284,7 @@ export class AccidentEditComponent implements OnInit {
   }
 
   getRecord(accidentId) {
-    console.log('\nTerminal Id ', accidentId);
+    console.log('\nAccident Id ', accidentId);
     const storedRecords = window.localStorage.getItem('accident');
     const updated = window.localStorage.getItem('accident_updated');
     if (storedRecords) {

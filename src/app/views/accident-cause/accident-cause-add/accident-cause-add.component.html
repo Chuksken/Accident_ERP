@@ -1,45 +1,49 @@
 <div class="animated fadeIn">
   <div class="row">
     <div class="col-sm-12">
-      <div class="card" style="color:cornflowerblue">
+      <div class="card" style="background-color:dimgray">
         <div class="card-header">
-          <h4>Add Accident</h4>
+          <h4>Add Accident Cause</h4>
           <div class="pull-right">
-              <button class="btn btn-sm btn-info" style="width:100px" (click)="goBack()"><i class="fa fa-reply"></i></button>
+            <button class="btn btn-sm btn-info" style="width:100px" (click)="goBack()"><i
+                class="fa fa-reply"></i></button>
           </div>
         </div>
         <div class="card-body">
 
           <!-- form content -->
-      <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
-        <div class="row">
+          <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+            <div class="row">
 
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-header">
-                Complete and submit the form to create a new Accident Cause
-              </div>
-              <div class="card-body" style="color:darkslategray">
-                <div class="col-sm-12">
-                  <div class="card">
-                    <div class="card-header">
-                      <strong>Accident Cause Form</strong>
-            
-                    </div>
-                    <div class="card-body">
-                      <div class="form-group">
-                        <label for="company">Name</label>
-                        <input type="text" formControlName="name" class="form-control" id="company" placeholder="Enter accident cause name">
-                      </div>
-                      <div class="form-group">
-                        <label for="vat">Offender</label>
-                        <input type="text" formControlName="offender" class="form-control" id="vat" placeholder="Accident cause offender">
-                      </div>
-                      <div class="form-group">
-                        <label for="street">Description</label>
-                        <input type="text" formControlName="description" class="form-control" id="street" placeholder="Enter description">
-                      </div>
-                      <!-- <div class="row">
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-header">
+                    Complete and submit the form to create a new Accident Cause
+                  </div>
+                  <div class="card-body" style="color:darkslategray">
+                    <div class="col-sm-12">
+                      <div class="card">
+                        <div class="card-header">
+                          <strong>Accident Cause Form</strong>
+
+                        </div>
+                        <div class="card-body">
+                          <div class="form-group">
+                            <label for="company">Name</label>
+                            <input type="text" formControlName="name" class="form-control" id="company"
+                              placeholder="Enter accident cause name">
+                          </div>
+                          <div class="form-group">
+                            <label for="vat">Offender</label>
+                            <input type="text" formControlName="offender" class="form-control" id="vat"
+                              placeholder="Accident cause offender">
+                          </div>
+                          <div class="form-group">
+                            <label for="street">Description</label>
+                            <input type="text" formControlName="description" class="form-control" id="street"
+                              placeholder="Enter description">
+                          </div>
+                          <!-- <div class="row">
                         <div class="form-group col-sm-8">
                           <label for="city">City</label>
                           <input type="text" class="form-control" id="city" placeholder="Enter your city">
@@ -48,30 +52,33 @@
                           <label for="postal-code">Postal Code</label>
                           <input type="text" class="form-control" id="postal-code" placeholder="Postal Code">
                         </div> -->
-                      <!-- </div>
+                          <!-- </div>
                       <div class="form-group">
                         <label for="country">Country</label>
                         <input type="text" class="form-control" id="country" placeholder="Country name">
                       </div> -->
+                        </div>
+                      </div>
+                    </div>
+                    <!--/.col-->
+
+
+                    <div class="form-group form-actions pull-right">
+                      <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+                      <button type="submit" class="btn btn-sm btn-primary">Submit</button>
                     </div>
                   </div>
-                </div><!--/.col-->
-              
- 
-                  <div class="form-group form-actions pull-right">
-                    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
-                    <button type="submit" class="btn btn-sm btn-primary">Submit</button>
-                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-        </div><!--/.row-->
-      </form>
+            </div>
+            <!--/.row-->
+          </form>
           <!--/. form content -->
 
         </div>
       </div>
     </div>
-  </div><!--/.row-->
+  </div>
+  <!--/.row-->
 </div>

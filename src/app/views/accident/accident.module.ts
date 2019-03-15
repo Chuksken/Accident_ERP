@@ -9,6 +9,8 @@ import { AccidentAddComponent } from './accident-add/accident-add.component';
 import { AccidentDetailComponent } from './accident-detail/accident-detail.component';
 import { AccidentEditComponent } from './accident-edit/accident-edit.component';
 import { AccidentListComponent } from './accident-list/accident-list.component';
+import { DataTablesModule } from 'angular-datatables';
+
 
 @NgModule({
   declarations: [AccidentComponent, AccidentAddComponent, AccidentDetailComponent, AccidentEditComponent, AccidentListComponent],
@@ -17,7 +19,9 @@ import { AccidentListComponent } from './accident-list/accident-list.component';
     AccidentRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+    DataTablesModule
+  
   ]
 })
 export class AccidentModule { }

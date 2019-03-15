@@ -8,7 +8,6 @@ import { driver } from './driver';
 export class Accident
 {
 id: string;
-//accident_id: Number;	
 vehicle_id:	Vehicle;	
 driver_id:	driver;	
 route_id:	PmtRoute;	
